@@ -702,11 +702,11 @@
 			]
 		},
 		"VIMToken.sol": {
-			"keccak256": "0x0572a973854dad818016d048cb8cc15aecfd1e1e091a34d6b211037434b16d1a",
+			"keccak256": "0x75d9cbeb70236db4578bafd4151ad900820b91592e55215d76403611351ce8ed",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3b49ae042b2ec37a23fa28623dd81aa1013ee860993c14cf64f8f5690e399024",
-				"dweb:/ipfs/QmTaBmaw8h9wQpwR6FvMctiDBiFK2Sw6hS1FUZJDWxJf7u"
+				"bzz-raw://079c489f1667015cbf3bee9a7f71f1c1a971a256d0ddcaf1f2a5fdad83e0a156",
+				"dweb:/ipfs/QmTkeipshihXnYLBE52Cx1qf12f27YoFukp4MFbg5XZ9Z6"
 			]
 		}
 	},

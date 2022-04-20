@@ -177,5 +177,13 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
             return result;
         }
     }
+    function _getAllToken() internal view returns (uint256[] memory _tokenID, address[] memory _Address) {
+        uint256 tokenCount = _allTokens.length;
+        address[] memory AddressRes = new address[](tokenCount);
+        for (uint256 i = 0; i < tokenCount; i++) {
+            AddressRes[i] = ownerOf(_allTokens[i]);
+        }
+        return (_allTokens,AddressRes);
+    }
 
 }
