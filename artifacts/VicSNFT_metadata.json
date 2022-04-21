@@ -199,6 +199,19 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "addCount",
+						"type": "uint256"
+					}
+				],
+				"name": "changshoesindex",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -214,11 +227,6 @@
 						"internalType": "uint256",
 						"name": "burntokenId2",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
 					}
 				],
 				"name": "FusioningShose",
@@ -232,14 +240,46 @@
 						"internalType": "uint256",
 						"name": "origintokenId",
 						"type": "uint256"
-					},
+					}
+				],
+				"name": "ShoesClone",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
 					}
 				],
-				"name": "ShoesClone",
+				"name": "ShoseCloneInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_lastClone",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_countChild",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "addCount",
+						"type": "uint256"
+					}
+				],
+				"name": "addShoesIndex",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -756,11 +796,6 @@
 						"internalType": "address",
 						"name": "to",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
 					}
 				],
 				"name": "unbox5000Shose",
@@ -984,11 +1019,11 @@
 			]
 		},
 		"VicSNFT.sol": {
-			"keccak256": "0x23fea9ced3276e5925c3829a44e9f36c98b0dc0936f9a6b66ff30687d4a3bb5a",
+			"keccak256": "0xeab8cf90c74d467ce4ef8f3206fd7742135711b72c8e07bdf081f62f03b5873f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d1cf9635c076ee29680e4cfbbee499cbed81cb54ac18fb0b28657f1e1fea0175",
-				"dweb:/ipfs/QmZmDSoqJEMLLMMkHtieeZCBUzGFXr9TZfVaEJVZDnDC3w"
+				"bzz-raw://16234ca1f93a771e07cc5b004fa4c454fca4b4c7ad4d0b8080316324082396ec",
+				"dweb:/ipfs/QmenwfPRE1TaBsGMtW8oPeKcRsmnPUnqZgCQNygkqHYtDw"
 			]
 		}
 	},
