@@ -20,7 +20,7 @@ contract VicSNFT is ERC721Enumerable {
     constructor() ERC721("Vic Shose NFT", "VicSNFT") {
         maxBox = 5000;
         curentBox = 0;
-        admin = 0x4F866dE40E5c98e554606242f74667f4F295FC9c;
+        admin = 0xFFb1141c30528294bCcCb71327535e71c9d05B78;
     }
     function setAdmin(address _admin) external onlyOwner {
         admin = _admin;
@@ -57,10 +57,9 @@ contract VicSNFT is ERC721Enumerable {
         lastClone[tokenId]=block.timestamp;
         //set data for parentid
         if(countChildID[origintokenId]==0){
-            listChildID[origintokenId] = new uint256[](tokenId);
-        }else{
-            listChildID[origintokenId].push(tokenId);
+            listChildID[origintokenId] = new uint256[](0);
         }
+        listChildID[origintokenId].push(tokenId);
         countChildID[origintokenId]++;
         lastClone[origintokenId]=block.timestamp;
         emit changeShoesClone(origintokenId, tokenId);

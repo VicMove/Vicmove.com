@@ -1008,11 +1008,11 @@
 			]
 		},
 		"VicSNFT.sol": {
-			"keccak256": "0x580e2d06dbb178966d298ea782d3c26422e219dbec5761d74aa5f4fcd7be0739",
+			"keccak256": "0xead0d103df4cb87a6a9f976c052ef9f1856419dd182056bc8f7137425ab83b33",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ed980dfafe3851c2396183008ddf1bd4e1aaf74833dbf3b800beae956f536b5c",
-				"dweb:/ipfs/QmUrnLoXhhy4FvdAPNQRtdDxBRDicN9mvxBEs8rXwdwGi1"
+				"bzz-raw://f4b63495b600d8f233f46c8295f5da2b881209047da35d6128752aac083077fa",
+				"dweb:/ipfs/QmWrJcEyUW1gAdYDJrT4LasxrSnN4QN76xSLWNQVuP1NXV"
 			]
 		}
 	},
