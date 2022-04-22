@@ -199,19 +199,6 @@
 				"type": "event"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "addCount",
-						"type": "uint256"
-					}
-				],
-				"name": "changshoesindex",
-				"type": "event"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -227,6 +214,11 @@
 						"internalType": "uint256",
 						"name": "burntokenId2",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
 					}
 				],
 				"name": "FusioningShose",
@@ -239,6 +231,11 @@
 					{
 						"internalType": "uint256",
 						"name": "origintokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
 						"type": "uint256"
 					}
 				],
@@ -269,19 +266,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "addCount",
-						"type": "uint256"
-					}
-				],
-				"name": "addShoesIndex",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -796,6 +780,11 @@
 						"internalType": "address",
 						"name": "to",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
 					}
 				],
 				"name": "unbox5000Shose",
@@ -1019,11 +1008,11 @@
 			]
 		},
 		"VicSNFT.sol": {
-			"keccak256": "0xeab8cf90c74d467ce4ef8f3206fd7742135711b72c8e07bdf081f62f03b5873f",
+			"keccak256": "0x580e2d06dbb178966d298ea782d3c26422e219dbec5761d74aa5f4fcd7be0739",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://16234ca1f93a771e07cc5b004fa4c454fca4b4c7ad4d0b8080316324082396ec",
-				"dweb:/ipfs/QmenwfPRE1TaBsGMtW8oPeKcRsmnPUnqZgCQNygkqHYtDw"
+				"bzz-raw://ed980dfafe3851c2396183008ddf1bd4e1aaf74833dbf3b800beae956f536b5c",
+				"dweb:/ipfs/QmUrnLoXhhy4FvdAPNQRtdDxBRDicN9mvxBEs8rXwdwGi1"
 			]
 		}
 	},

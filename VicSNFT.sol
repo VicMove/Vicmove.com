@@ -6,7 +6,6 @@ import "./ERC721Enumerable.sol";
 contract VicSNFT is ERC721Enumerable {
     uint256 private maxBox;
     uint256 private curentBox;
-    uint256 private shoesIndex;
     address private admin;
     mapping(uint256 => uint256) private parentID;
     mapping(uint256 => uint256[]) private listChildID;
@@ -14,7 +13,6 @@ contract VicSNFT is ERC721Enumerable {
     mapping(uint256 => uint256) private lastClone;
 
     event changeadmin(address admin);
-    event changshoesindex(uint256 addCount);
     event changeunbox5000Shose(address to, uint256 tokenId);
     event changeFusioningShose(address to,uint256 burntokenId1,uint256 burntokenId2,uint256 tokenId);
     event changeShoesClone(uint256 origintokenId, uint256 newTokenID);
@@ -22,7 +20,6 @@ contract VicSNFT is ERC721Enumerable {
     constructor() ERC721("Vic Shose NFT", "VicSNFT") {
         maxBox = 5000;
         curentBox = 0;
-        shoesIndex = 0;
         admin = 0x4F866dE40E5c98e554606242f74667f4F295FC9c;
     }
     function setAdmin(address _admin) external onlyOwner {
@@ -35,31 +32,24 @@ contract VicSNFT is ERC721Enumerable {
     function getAdmin() external view returns (address _admin) {
         return (admin);
     }  
-    function addShoesIndex(uint256 addCount) external onlyOwner {
-        shoesIndex = shoesIndex + addCount;
-        emit changshoesindex(addCount);
-    } 
 
     //Only 5000 boxes are open for sale. After that, the community will have to dig out shoes and buy and sell on the market
-    function unbox5000Shose(address to) external {
+    function unbox5000Shose(address to,uint256 tokenId) external {
         require(msg.sender == admin);
         require(curentBox<maxBox,"The maximum number of boxes has been reached, can't open any more");
-        uint256 tokenId = shoesIndex;
         _mint(to,tokenId);
         parentID[tokenId] = 0;
         countChildID[tokenId] = 0;
         lastClone[tokenId]=block.timestamp;
         curentBox++;
-        shoesIndex++;
         emit changeunbox5000Shose(to, tokenId);
     }
 
     //Cloning shoes, Shoes can only be cloned up to 7 times, and each must be 30 days apart
-    function ShoesClone(uint256 origintokenId) external{
+    function ShoesClone(uint256 origintokenId,uint256 tokenId) external{
         require(msg.sender == admin);
-        require(lastClone[origintokenId] < (block.timestamp - 30 seconds), "Each clone must be 30 days apart");
+        require(lastClone[origintokenId] < (block.timestamp - 30 days), "Each clone must be 30 days apart");
         require(countChildID[origintokenId] < 7,"Each shoe is only allowed to clone 7 times");
-        uint256 tokenId = shoesIndex;
         //mint and set data for TokenID
         _mint(ownerOf(origintokenId),tokenId);
         parentID[tokenId] = origintokenId;
@@ -73,7 +63,6 @@ contract VicSNFT is ERC721Enumerable {
         }
         countChildID[origintokenId]++;
         lastClone[origintokenId]=block.timestamp;
-        shoesIndex++;
         emit changeShoesClone(origintokenId, tokenId);
     }
 
@@ -82,18 +71,16 @@ contract VicSNFT is ERC721Enumerable {
     }
 
     //Had to burn 2 shoes to get 1 new and better shoe
-    function FusioningShose(address to,uint256 burntokenId1,uint256 burntokenId2) external {
+    function FusioningShose(address to,uint256 burntokenId1,uint256 burntokenId2,uint256 tokenId) external {
         require(msg.sender == admin);
         require(ownerOf(burntokenId1) == to, "Require same owner");
         require(ownerOf(burntokenId2) == to, "Require same owner");
-        uint256 tokenId = shoesIndex;
         _burn(burntokenId1);
         _burn(burntokenId2);
         _mint(to,tokenId);
         parentID[tokenId] = 0;
         countChildID[tokenId] = 0;
         lastClone[tokenId]=block.timestamp;
-        shoesIndex++;
         emit changeFusioningShose(to, burntokenId1, burntokenId2, tokenId);
     }
 
