@@ -1,0 +1,284 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "beneficiaryAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "startTimestamp",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "durationSeconds",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "ERC20Released",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "EtherReleased",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "beneficiary",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "duration",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "release",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					}
+				],
+				"name": "released",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "start",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "timestamp",
+						"type": "uint64"
+					}
+				],
+				"name": "vestedAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"details": "This contract handles the vesting of Eth and ERC20 tokens for a given beneficiary. Custody of multiple tokens can be given to this contract, which will release the token to the beneficiary following a given vesting schedule. The vesting schedule is customizable through the {vestedAmount} function. Any token transferred to this contract will follow the vesting schedule as if they were locked from the beginning. Consequently, if the vesting has already started, any amount of tokens sent to this contract will (at least partly) be immediately releasable.",
+			"kind": "dev",
+			"methods": {
+				"beneficiary()": {
+					"details": "Getter for the beneficiary address."
+				},
+				"constructor": {
+					"details": "Set the beneficiary, start timestamp and vesting duration of the vesting wallet."
+				},
+				"duration()": {
+					"details": "Getter for the vesting duration."
+				},
+				"getBalance(address)": {
+					"details": "get balance."
+				},
+				"release(address)": {
+					"details": "Release the tokens that have already vested. Emits a {TokensReleased} event."
+				},
+				"released(address)": {
+					"details": "Amount of token already released"
+				},
+				"start()": {
+					"details": "Getter for the start timestamp."
+				},
+				"vestedAmount(address,uint64)": {
+					"details": "Calculates the amount of tokens that has already vested. Default implementation is a linear vesting curve."
+				}
+			},
+			"title": "VestingWallet",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Lock-All-VIM-And-Vesting.sol": "VestingWallet"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Address.sol": {
+			"keccak256": "0x87f3dea16eba5937fddc16654dbfc6855c27b8c2b62603e74566f228542ce1fb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7285a4af272b27ce5b5cfbb3bd3e81867300f6ce8784e7b1bed58f4c7f1a7af2",
+				"dweb:/ipfs/QmY5LTxgtpVdh1YjN8FwVPpfEvrztWZ9GoQZrN3Hv3n31c"
+			]
+		},
+		"BEPContext.sol": {
+			"keccak256": "0xdd500e39fddc002cdb153b0a608db9e093c2f60cf8f35a365fc15f61680c4bda",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://db3dc4b19c372752debddb8d44b84b0581e301da1f7ac9a0d44246a677263022",
+				"dweb:/ipfs/QmZ5fvqabMXU6jbiLeN5GNJkzkhnzYuLv9gkLpHQnDcStA"
+			]
+		},
+		"IERC20.sol": {
+			"keccak256": "0x6ba702bf7bb3ff99b585fd812e6234a6896dc9151500eb9bb58716c14bcb69f4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c6b8cfe345248cdd9956c5085dfb7209387a129e6aa207a09056d9614d87ee49",
+				"dweb:/ipfs/QmXPA8HVT2T449p3bmZYaPqEJgxHNNFXrz3zqFBfn9D7re"
+			]
+		},
+		"Lock-All-VIM-And-Vesting.sol": {
+			"keccak256": "0x734f8e3ccfb7300281150bdf36495202980bd8c08ef624218a0e0c7072f332c5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ba1108f0acfd6c43f0cd409c6096de7af4aa70283285f928ea74bc45331be9ed",
+				"dweb:/ipfs/Qmf5CTissxqGRxZoRDLLbU2za9PJEmSprUF8rNiLGDSWHv"
+			]
+		},
+		"Math.sol": {
+			"keccak256": "0x4bb63906281a52773fe565cb4105cce98a5667e8aa2d141705d6675a3b3af58d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2eb115c19de9c07626b8179dd6dd92f4c4cd97f2d83d3ed9bcbe2a2b00ba14c5",
+				"dweb:/ipfs/QmT2ipiePUu7E2g6Nn2YaJF8eA8rd2vd8GKmX1Pn49jSiv"
+			]
+		},
+		"SafeERC20.sol": {
+			"keccak256": "0x5c990c0247f4f1c283f6235de0b455f692b7e711ddbe50ce769220325cd73ed4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5df26f207e469aa16c66468a228a0eb5e3c0dc7e8a0c0998bca9d0d0a6c1b173",
+				"dweb:/ipfs/QmdPJqkNFCp2P5phtuyDcLaPCj1LUbw2csGJD7N31CZ5Cp"
+			]
+		}
+	},
+	"version": 1
+}
